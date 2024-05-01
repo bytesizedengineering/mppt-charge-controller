@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.1x1.1mm"
+		(property "Footprint" ""
 			(at 0 22.352 0)
 			(effects
 				(font

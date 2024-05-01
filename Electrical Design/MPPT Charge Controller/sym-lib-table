@@ -1,4 +1,4 @@
 (sym_lib_table
   (version 7)
-  (lib (name "MPPT Charge Controller Project Library")(type "KiCad")(uri "${KIPRJMOD}/MPPT Charge Controller Project Library.kicad_sym")(options "")(descr ""))
+  (lib (name "MPPT Charge Controller Symbol Library")(type "KiCad")(uri "${KIPRJMOD}/MPPT Charge Controller Symbol Library.kicad_sym")(options "")(descr ""))
 )
