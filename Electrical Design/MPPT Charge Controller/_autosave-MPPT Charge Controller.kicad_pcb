@@ -144,7 +144,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "MPPT Charge Controller-Gerbers/")
 		)
 	)
 	(net 0 "")

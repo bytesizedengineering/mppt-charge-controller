@@ -49,6 +49,26 @@
 				(hide yes)
 			)
 		)
+		(symbol "BQ24650_1_0"
+			(pin power_in line
+				(at 0 -22.86 90)
+				(length 2.54)
+				(name "Thermal_Pad"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "17"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
 		(symbol "BQ24650_1_1"
 			(rectangle
 				(start -10.16 20.32)
