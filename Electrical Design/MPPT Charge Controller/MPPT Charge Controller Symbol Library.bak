@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MPPT Charge Controller Footprint Library:VQFN-16_EP_3.5x3.5_Pitch0.5mm"
 			(at 0 22.352 0)
 			(effects
 				(font

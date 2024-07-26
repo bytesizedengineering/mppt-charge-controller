@@ -1,0 +1,107 @@
+(footprint "L_Vishay_6.9x6.5"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 4.4 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "17a6873f-e369-48b6-830b-d764456b7a2a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "L_Vishay_6.9x6.5"
+		(at 0 -4.3 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "1369bcbb-6f57-4ad7-ab76-50946dc1ade8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "41bf98dc-5a0f-4ed7-9a2d-0d52326a47c0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6426f621-d9bc-4f42-b404-2b51d8ffe7c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9f834a06-e3fc-49f4-8111-0216ee847081")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -3.5 -3.3)
+		(end 3.5 3.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "fde886ea-07fb-4b45-9f84-887b6e3cce86")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "4234e96f-d66b-4c9a-adfd-915790bbfc86")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -3 0 180)
+		(size 2.5 3.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 45)
+		(uuid "4394db78-a790-4070-8921-6e6e6a206011")
+	)
+	(pad "2" smd rect
+		(at 3 0 180)
+		(size 2.5 3.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 45)
+		(uuid "46726b7c-80c2-4e5f-ae81-893c4774b78c")
+	)
+)
