@@ -31,3 +31,4 @@ fp-info-cache
 # Local project settings
 *.pro.user
 /Electrical Design/MPPT Charge Controller/MPPT Charge Controller-backups
+/Firmware/test firmware
