@@ -31,7 +31,7 @@ float batteryVoltage = 0.0, previousBatteryVoltage = 0.0, batteryCurrent = 0.0, 
 unsigned long lastTimeSolarWasDisplayed = 0, lastTimeBatteryWasDisplayed = 0, lastTimeStatsWerePrinted = 0;
 bool increaseVmp = true;
 
-uint8_t potValue = 64;
+uint8_t potValue = 96;
 
 // Interrupt Service Routines
 void IRAM_ATTR loadEnableButton(){
@@ -102,30 +102,48 @@ void setup() {
 
 void loop() {
   //read solar voltage and current, and calculate power
-  solarVoltage = (analogReadMilliVolts(SOLAR_VOLTAGE_ADC)*535/36.0)/1000.0 + 0.06; // voltage divider resistor values on solar input
-  solarVoltage = previousSolarVoltage*0.99 + solarVoltage*0.01;
-  previousSolarVoltage = solarVoltage;
+  unsigned long sum = 0;
+  int sample = 0, numSamples = 100;
+  for(int i=0; i<numSamples; i++){
+    sample = analogReadMilliVolts(SOLAR_VOLTAGE_ADC);
+    sum += sample;
+    delay(10);
+  }
+  float averageSample = sum/numSamples;
+  solarVoltage = averageSample*535/36.0/1000.0 + 0.5; // voltage divider resistor values on solar input
+  //solarVoltage = previousSolarVoltage*0.99 + solarVoltage*0.01;
+  //previousSolarVoltage = solarVoltage;
 
-  solarCurrent = (analogReadMilliVolts(SOLAR_CURRENT_ADC)*20000/3300.0-10000)/1000.0; // Using a +/-10A current sensor running on 3.3V VCC
-  solarCurrent = previousSolarCurrent*0.95 + solarCurrent*0.05;
-  previousSolarCurrent = solarCurrent;
+  sum = 0;
+  for(int i=0; i<numSamples; i++){
+    sample = analogReadMilliVolts(SOLAR_CURRENT_ADC);
+    sum += sample;
+    delay(10);
+  }
+  averageSample = sum/numSamples;
+  solarCurrent = (averageSample-1650)/132.0-0.06; // sensitivity is 132mV/A. When no curernt is flowing, sensor outputs 3.3V/2
+  //solarCurrent = previousSolarCurrent*0.99 + solarCurrent*0.01;
+  //previousSolarCurrent = solarCurrent;
 
   solarPower = solarVoltage*solarCurrent;
   setVmp();
+  previousSolarPower = solarPower;
 
   //read battery voltage and current and calculate power
+  sum = 0;
+
   batteryVoltage = (analogReadMilliVolts(BATTERY_VOLTAGE_ADC)*599/100.0)/1000.0 + 0.4; // voltage divider resistor values on battery output
   batteryVoltage = previousBatteryVoltage*0.99 + batteryVoltage*0.01;
   previousBatteryVoltage = batteryVoltage;
 
-  batteryCurrent = (analogReadMilliVolts(BATTERY_CURRENT_ADC)*20000/3300.0-10000)/1000.0; // Using a +/-10A current sensor running on 3.3V VCC
+  batteryCurrent = (analogReadMilliVolts(BATTERY_CURRENT_ADC)*10000/3300.0-5000)/1000.0; // Using a +/-10A current sensor running on 3.3V VCC
   batteryCurrent = previousBatteryCurrent*0.95 + batteryCurrent*0.05;
   previousBatteryCurrent = batteryCurrent;
 
   batteryPower = batteryVoltage*batteryCurrent;
 
   float controllerEfficiency = batteryPower/solarPower;
-  
+
 
   if(millis() - lastTimeStatsWerePrinted > UPDATE_DATA_INTERVAL){
     lastTimeStatsWerePrinted = millis();
@@ -138,8 +156,8 @@ void loop() {
     Serial.print(batteryCurrent); Serial.print("A\t");
     Serial.print(batteryPower); Serial.print("W\t");
     Serial.print("Controller Effeciency: "); Serial.print(controllerEfficiency*100); Serial.println("%");
-    
-        
+
+
   }
 
   if(loadEnableButtonWasPressed){
@@ -197,28 +215,33 @@ void displayData(String source){
   tft.println(potValue);
 }
 
-void setPotentiometerValue() {
+void setPotentiometerValue(uint8_t value) {
   Wire.beginTransmission(MCP4018_ADDRESS);
-  Wire.write(potValue);
+  Wire.write(value); //50k digital potentiometer, with 128 taps.
   Wire.endTransmission();
 }
 
+
 void setVmp(){
+  // Decreasing the potValue will increase the Vmp.
+  // Higher potValue -> lower Vmp. Lower potValue -> higher Vmp.
+  // For potValue of 127 (50k Ohms), the Vmp = 13.2V.
+  // For potValue of 64 (25k Ohms), Vmp = 25.2V.
+
   if(solarPower > previousSolarPower){
-    if(increaseVmp) potValue++;
-    else potValue--;
+    if(increaseVmp) potValue--;
+    else potValue++;
   }
   else{
     if(increaseVmp){
       increaseVmp = false;
-      potValue--;
+      potValue++;
     }
     else{
       increaseVmp = true;
-      potValue++;
+      potValue--;
     }
   }
-  previousSolarPower = solarPower;
-  potValue = constrain(potValue, 0, 127);
-  setPotentiometerValue();
+  potValue = constrain(potValue, 64, 127); // potValues less than 64 continue to increase Vmp and are unusable for this design. For example a potValue of 1 (391 Ohms), the Vmp would be 1,536.6V
+  setPotentiometerValue(potValue);
 }

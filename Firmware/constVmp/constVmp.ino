@@ -31,7 +31,7 @@ float batteryVoltage = 0.0, previousBatteryVoltage = 0.0, batteryCurrent = 0.0, 
 unsigned long lastTimeSolarWasDisplayed = 0, lastTimeBatteryWasDisplayed = 0, lastTimeStatsWerePrinted = 0;
 bool increaseVmp = true;
 
-uint8_t potValue = 112;
+uint8_t potValue = 117;
 
 // Interrupt Service Routines
 void IRAM_ATTR loadEnableButton(){

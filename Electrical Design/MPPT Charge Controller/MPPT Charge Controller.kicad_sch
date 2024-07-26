@@ -6,9 +6,171 @@
 	(paper "A4")
 	(title_block
 		(title "MPPT Charge Controller")
-		(rev "0.2")
+		(rev "0.3")
 	)
 	(lib_symbols
+		(symbol "Connector:Conn_01x02_Socket"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02_Socket"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x02, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_Socket_1_1"
+				(arc
+					(start 0 -2.032)
+					(mid -0.5058 -2.54)
+					(end 0 -3.048)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0.508)
+					(mid -0.5058 0)
+					(end 0 -0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Screw_Terminal_01x02"
 			(pin_names
 				(offset 1.016) hide)
@@ -4716,6 +4878,12 @@
 		(uuid "a29c6ac1-3d8c-4c53-b24f-20b436beda46")
 	)
 	(junction
+		(at 57.15 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a4be88f4-7f91-4bce-9724-d0aaa6d3d9cc")
+	)
+	(junction
 		(at 184.15 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5020,6 +5188,16 @@
 			(type default)
 		)
 		(uuid "0b2f6a75-fb7f-413b-9e05-d84c68e38937")
+	)
+	(wire
+		(pts
+			(xy 49.53 113.03) (xy 49.53 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b4e52a6-1184-474d-abbc-4aa79bd3f5bf")
 	)
 	(wire
 		(pts
@@ -6013,6 +6191,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 120.65) (xy 57.15 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "752ee35a-14b0-49d5-aeed-b4789722c928")
+	)
+	(wire
+		(pts
 			(xy 168.91 71.12) (xy 168.91 74.93)
 		)
 		(stroke
@@ -6973,6 +7161,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 118.11) (xy 49.53 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7797182-4ce7-42fe-83ae-24314faeb229")
+	)
+	(wire
+		(pts
 			(xy 161.29 71.12) (xy 158.75 71.12)
 		)
 		(stroke
@@ -7253,6 +7451,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 113.03) (xy 49.53 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "faa3c0ef-230a-4e6b-9b8b-8911139ec4dd")
+	)
+	(wire
+		(pts
 			(xy 115.57 53.34) (xy 142.24 53.34)
 		)
 		(stroke
@@ -7341,10 +7549,10 @@
 		)
 		(uuid "ffd363fb-940f-4ba5-8195-1b00558d2632")
 	)
-	(text_box "NTC\nThermistor"
+	(text_box "NTC\n10k Thermistor"
 		(exclude_from_sim no)
-		(at 50.8 105.41 90)
-		(size 15.24 20.32)
+		(at 38.1 107.95 90)
+		(size 13.97 16.51)
 		(stroke
 			(width 0)
 			(type default)
@@ -10193,6 +10401,73 @@
 			(project "MPPT Charge Controller"
 				(path "/6fccb5b0-46ff-4014-9169-aa61e4064f3f"
 					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Socket")
+		(at 44.45 118.11 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d48edbe-26e7-4fd3-b04c-0cf8ddcda5da")
+		(property "Reference" "J4"
+			(at 45.085 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 44.45 128.016 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+			(at 44.45 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 44.45 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a292220f-9c56-451a-b327-050dfe45d6b6")
+		)
+		(pin "2"
+			(uuid "9d492199-a805-45e5-b03f-9741d96d9390")
+		)
+		(instances
+			(project "MPPT Charge Controller"
+				(path "/6fccb5b0-46ff-4014-9169-aa61e4064f3f"
+					(reference "J4")
 					(unit 1)
 				)
 			)
